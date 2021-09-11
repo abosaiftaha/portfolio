@@ -11,18 +11,11 @@ const GlobalStyle = createGlobalStyle`
   body {
     padding: 0;
     margin: 0;
-    font-family: 'Salsa BT';
     background-color: ${({ theme }) => theme.colors.black};
-    color: ${({ theme }) => theme.colors.white};
-
-    .bold {
-      font-family: 'Lato';
-      font-weight: bold;
-    }
   }
 
   body{
-    padding: 70px;
+    padding: 0 70px;
   }
 
   * {
