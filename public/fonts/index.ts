@@ -42,12 +42,12 @@ const FontGlobalStyle = createGlobalStyle`
 
 @font-face {
     font-family: 'Salsa BT';
-    src: url('SalsaBT-Regular.eot');
-    src: url('SalsaBT-Regular.eot?#iefix') format('embedded-opentype'),
-        url('SalsaBT-Regular.woff2') format('woff2'),
-        url('SalsaBT-Regular.woff') format('woff'),
-        url('SalsaBT-Regular.ttf') format('truetype'),
-        url('SalsaBT-Regular.svg#SalsaBT-Regular') format('svg');
+    src: url('/fonts/SalsaBT-Regular.eot');
+    src: url('/fonts/SalsaBT-Regular.eot?#iefix') format('embedded-opentype'),
+        url('/fonts/SalsaBT-Regular.woff2') format('woff2'),
+        url('/fonts/SalsaBT-Regular.woff') format('woff'),
+        url('/fonts/SalsaBT-Regular.ttf') format('truetype'),
+        url('/fonts/SalsaBT-Regular.svg#SalsaBT-Regular') format('svg');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
