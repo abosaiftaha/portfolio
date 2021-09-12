@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import type { NextPage } from "next";
 import Head from "next/head";
+// import Image from "next/image";
 import styled from "styled-components";
+import { Animations } from "../hooks/animations";
 import { useWindowSize } from "../hooks/useWindowResize";
 
 const HeroBanner = styled(motion.div)`
@@ -10,6 +12,7 @@ const HeroBanner = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 `;
 
 const MainText = styled.div.attrs((props: { width: number }) => ({
@@ -19,10 +22,13 @@ const MainText = styled.div.attrs((props: { width: number }) => ({
   font-family: ${({ theme }) => theme.fontFamily.salsa};
   font-size: ${({ width }) => `${width / 6}px`};
   text-align: center;
+  position: relative;
+  z-index: 2;
 `;
 
 const Home: NextPage = () => {
   const { width } = useWindowSize();
+  const { transition } = Animations();
 
   return (
     <>
@@ -57,13 +63,19 @@ const Home: NextPage = () => {
       <HeroBanner
         initial="hidden"
         animate="visible"
-        transition={{ duration: 2 }}
+        transition={{ ...transition, duration: 1 }}
         variants={{
-          hidden: { opacity: 0 },
-          visible: { opacity: 1 },
+          hidden: {
+            y: "120%",
+          },
+          visible: {
+            y: "0%",
+          },
         }}
       >
-        <MainText width={width}>Ahmad Taha</MainText>
+        <MainText width={width} id="ahmadTaha">
+          Ahmad Taha
+        </MainText>
       </HeroBanner>
     </>
   );
