@@ -4,6 +4,7 @@ import {
   DefaultTheme,
   ThemeProvider,
 } from "styled-components";
+import { Cursor } from "../components/cursor";
 import FontGlobalStyle from "../public/fonts";
 
 const GlobalStyle = createGlobalStyle`
@@ -12,9 +13,12 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     background-color: ${({ theme }) => theme.colors.black};
+    overflow-x: hidden;
   }
 
   body{
+    cursor: none;
+    isolation: isolate;
     padding: 0 70px;
   }
 
@@ -69,11 +73,14 @@ const theme: DefaultTheme = {
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <FontGlobalStyle />
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <FontGlobalStyle />
+        <Cursor />
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </>
   );
 }
 export default MyApp;
