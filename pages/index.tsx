@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
 import type { NextPage } from "next";
 import Head from "next/head";
-// import Image from "next/image";
+import Image from "next/image";
 import styled from "styled-components";
 import { Animations } from "../hooks/animations";
+import { useMousePosition } from "../hooks/useMousePosition";
 import { useWindowSize } from "../hooks/useWindowResize";
+import GeekSVG from "../public/assets/GeekSVG";
 
 const HeroBanner = styled(motion.div)`
   height: 100vh;
@@ -26,9 +28,21 @@ const MainText = styled.div.attrs((props: { width: number }) => ({
   z-index: 2;
 `;
 
+const GeekStickerContainer = styled(motion.div)`
+  width: 180px;
+  height: 180px;
+  position: absolute;
+  right: -20px;
+  top: -50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 const Home: NextPage = () => {
   const { width } = useWindowSize();
   const { transition } = Animations();
+  const { hoverMainTitle } = useMousePosition();
 
   return (
     <>
@@ -75,6 +89,20 @@ const Home: NextPage = () => {
       >
         <MainText width={width} id="ahmadTaha">
           Ahmad Taha
+          <GeekStickerContainer
+            animate={hoverMainTitle ? { rotate: 360 } : {}}
+            transition={
+              hoverMainTitle
+                ? {
+                    duration: 5,
+                    repeat: Infinity,
+                    type: "spring",
+                  }
+                : { duration: 1 }
+            }
+          >
+            <GeekSVG />
+          </GeekStickerContainer>
         </MainText>
       </HeroBanner>
     </>
