@@ -1,11 +1,7 @@
 import React, { Dispatch, FunctionComponent, SetStateAction } from "react";
 import { IoMoonOutline, IoSunnyOutline, IoMailOutline } from "react-icons/io5";
 import styled from "styled-components";
-
-interface NavProps {
-  isDarkMode: boolean;
-  setIsDarkMode: Dispatch<SetStateAction<boolean>>;
-}
+import { useAppContext } from "../context/contextProvider";
 
 const Container = styled.div`
   width: 100%;
@@ -31,7 +27,6 @@ const Home = styled.a`
 const MailIcon = styled(IoMailOutline)`
   fill: ${({ theme }) => theme.colors.white};
   stroke: ${({ theme }) => theme.colors.white};
-  margin: 0 10px;
 `;
 
 const MoonIcon = styled(IoMoonOutline)`
@@ -46,19 +41,42 @@ const SunIcon = styled(IoSunnyOutline)`
   margin: 0 10px;
 `;
 
-const Nav: FunctionComponent<NavProps> = ({ isDarkMode, setIsDarkMode }) => {
+const IconContainer = styled.a`
+  margin: 0 10px;
+`;
+
+const LeftContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+`;
+
+const Nav: FunctionComponent<{}> = () => {
+  const { isDark, toggleDark } = useAppContext();
+
+  console.log(toggleDark);
   return (
     <Container>
       <Home>Home</Home>
 
-      <div>
-        <MailIcon size={30} />
-        {isDarkMode ? (
-          <SunIcon size={27} onClick={() => setIsDarkMode(false)} />
+      <LeftContainer>
+        <IconContainer href="mailto:ahmad.khaled.taha@outlook.com">
+          <MailIcon size={30} className="link-icon" />
+        </IconContainer>
+        {isDark ? (
+          <SunIcon
+            size={27}
+            className="link-icon"
+            onClick={() => toggleDark && toggleDark(false)}
+          />
         ) : (
-          <MoonIcon size={27} onClick={() => setIsDarkMode(true)} />
+          <MoonIcon
+            size={27}
+            className="link-icon"
+            onClick={() => toggleDark && toggleDark(true)}
+          />
         )}
-      </div>
+      </LeftContainer>
     </Container>
   );
 };
