@@ -1,12 +1,9 @@
 import type { AppProps } from "next/app";
-import { useState } from "react";
-import {
-  createGlobalStyle,
-  DefaultTheme,
-  ThemeProvider,
-} from "styled-components";
+import { createGlobalStyle } from "styled-components";
 import { Cursor } from "../components/cursor";
 import Nav from "../components/nav";
+import AppThemeProvider from "../components/themeProvider";
+import { ContextWrapper } from "../context/contextProvider";
 import FontGlobalStyle from "../public/fonts";
 
 const GlobalStyle = createGlobalStyle`
@@ -41,48 +38,17 @@ const GlobalStyle = createGlobalStyle`
   }
   `;
 
-const darkTheme: DefaultTheme = {
-  colors: {
-    blue: "#5AC1F4",
-    yellow: "#FCD406",
-    purple: "#BB7DFF",
-    red: "#FE7171",
-    black: "#000",
-    white: "#fff",
-  },
-  fontFamily: {
-    salsa: "Salsa BT",
-    lato: "Lato",
-  },
-};
-
-const lightTheme: DefaultTheme = {
-  colors: {
-    blue: "#5AC1F4",
-    yellow: "#FCD406",
-    purple: "#BB7DFF",
-    red: "#FE7171",
-    black: "#fff",
-    white: "#000",
-  },
-  fontFamily: {
-    salsa: "Salsa BT",
-    lato: "Lato",
-  },
-};
-
 function MyApp({ Component, pageProps }: AppProps) {
-  const [isDarkMode, setIsDarkMode] = useState(true);
   return (
-    <>
-      <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
+    <ContextWrapper>
+      <AppThemeProvider>
         <GlobalStyle />
         <FontGlobalStyle />
         <Cursor />
-        <Nav isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+        <Nav />
         <Component {...pageProps} />
-      </ThemeProvider>
-    </>
+      </AppThemeProvider>
+    </ContextWrapper>
   );
 }
 export default MyApp;
