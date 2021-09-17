@@ -9,13 +9,15 @@ export const useMousePosition = () => {
     const handlePosition = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
 
-      if ((e.target as HTMLElement).id === "ahmadTaha") {
+      if ((e.target as HTMLElement).id === "geekSticker") {
         setMainTitle(true);
       } else {
         setMainTitle(false);
       }
-
-      if ((e.target as HTMLElement).tagName === "A") {
+      if (
+        (e.target as HTMLElement).tagName === "A" ||
+        (e.target as HTMLElement).getAttribute("class")?.includes("link-icon")
+      ) {
         setHoverNav(true);
       } else {
         setHoverNav(false);
