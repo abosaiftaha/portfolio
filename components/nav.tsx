@@ -54,7 +54,6 @@ const LeftContainer = styled.div`
 const Nav: FunctionComponent<{}> = () => {
   const { isDark, toggleDark } = useAppContext();
 
-  console.log(toggleDark);
   return (
     <Container>
       <Home>Home</Home>
