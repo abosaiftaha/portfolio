@@ -13,7 +13,7 @@ interface IAppContext {
 }
 
 const defaultState = {
-  isDark: false,
+  isDark: true,
 };
 
 const AppContext = createContext<IAppContext>(defaultState);
