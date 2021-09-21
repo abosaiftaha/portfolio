@@ -2,7 +2,7 @@ import React from "react";
 import styled, { useTheme } from "styled-components";
 import { useMousePosition } from "../hooks/useMousePosition";
 import { motion } from "framer-motion";
-import { useAppContext } from "../context/contextProvider";
+import { useAppContext } from "../utils/contextProvider";
 
 const CursorFollower = styled(motion.div)`
   pointer-events: none;
@@ -61,7 +61,6 @@ const Cursor = () => {
           y: "-50%",
           scale: hoverNav ? 1.8 : 1,
           opacity: hoverNav ? 1 : 0.3,
-          backgroundColor: hoverNav ? theme.colors.black : "",
         }}
         transition={{ ease: "linear", duration: 0.15 }}
       />
