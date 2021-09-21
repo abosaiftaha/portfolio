@@ -1,7 +1,7 @@
 import React, { Dispatch, FunctionComponent, SetStateAction } from "react";
 import { IoMoonOutline, IoSunnyOutline, IoMailOutline } from "react-icons/io5";
 import styled from "styled-components";
-import { useAppContext } from "../context/contextProvider";
+import { useAppContext } from "../utils/contextProvider";
 
 const Container = styled.div`
   width: 100%;

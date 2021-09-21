@@ -2,9 +2,10 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { createGlobalStyle } from "styled-components";
 import { Cursor } from "../components/cursor";
+import LoadingScreen from "../components/loading";
 import Nav from "../components/nav";
-import AppThemeProvider from "../components/themeProvider";
-import { ContextWrapper } from "../context/contextProvider";
+import AppThemeProvider from "../utils/themeProvider";
+import { ContextWrapper } from "../utils/contextProvider";
 import FontGlobalStyle from "../public/fonts";
 
 const GlobalStyle = createGlobalStyle`
@@ -75,6 +76,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <FontGlobalStyle />
         <Cursor />
         <Nav />
+        <LoadingScreen />
         <Component {...pageProps} />
       </AppThemeProvider>
     </ContextWrapper>

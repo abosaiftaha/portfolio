@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { DefaultTheme, ThemeProvider } from "styled-components";
-import { useAppContext } from "../context/contextProvider";
+import { useAppContext } from "./contextProvider";
 
 interface AppThemeProviderProps {}
 

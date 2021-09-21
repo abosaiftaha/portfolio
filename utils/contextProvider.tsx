@@ -4,6 +4,7 @@ import {
   FC,
   SetStateAction,
   useContext,
+  useEffect,
   useState,
 } from "react";
 
@@ -23,6 +24,11 @@ export const ContextWrapper: FC = ({ children }) => {
   const toggleDark = () => {
     setDark(!isDark);
   };
+
+  useEffect(() => {
+    localStorage.setItem("theme", "dark");
+    console.log(localStorage.getItem("theme"));
+  }, []);
 
   return (
     <AppContext.Provider
