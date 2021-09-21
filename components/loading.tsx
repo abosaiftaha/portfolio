@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import React, { FC } from "react";
 import styled from "styled-components";
+import { useAppContext } from "../utils/contextProvider";
 
 interface LoadingScreenProps {}
 
@@ -12,10 +13,10 @@ const LoadingContainer = styled(motion.div)`
   top: 0;
   background-color: ${({ theme }) => theme.colors.black};
   z-index: 999;
-  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 
   &::after {
     content: "";
@@ -38,12 +39,17 @@ const LightSpot = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &.light {
+    background: url("/assets/cursorFollowerInverted.png") 0 0 no-repeat;
+    background-size: 100% 100%;
+  }
 `;
 
 const LoadingText = styled(motion.div)`
   width: 100%;
   font-family: ${({ theme }) => theme.fontFamily.lato};
-  /* font-size: 70px; */
+  font-size: 40px;
   font-weight: 300;
   /* -webkit-text-stroke: 1px ${({ theme }) => theme.colors.white}; */
   color: ${({ theme }) => theme.colors.white};
@@ -69,6 +75,18 @@ const loadingSentences = [
 const randomNum = Math.floor(Math.random() * loadingSentences.length);
 
 const variants = {
+  container: {
+    hidden: {
+      width: "100vw",
+      x: 0,
+      opacity: 1,
+    },
+    visible: {
+      width: 0,
+      x: "100vw",
+      opacity: 0.5,
+    },
+  },
   lightSpot: {
     hidden: {
       width: "100vh",
@@ -87,9 +105,17 @@ const variants = {
 };
 
 const LoadingScreen: FC<LoadingScreenProps> = () => {
+  const { isDark } = useAppContext();
+
   return (
-    <LoadingContainer>
+    <LoadingContainer
+      initial="hidden"
+      animate="visible"
+      variants={variants.container}
+      transition={{ delay: 4, duration: 0.3 }}
+    >
       <LightSpot
+        className={isDark ? "" : "light"}
         initial="hidden"
         animate="visible"
         variants={variants.lightSpot}
