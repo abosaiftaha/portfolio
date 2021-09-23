@@ -14,7 +14,6 @@ const CursorFollower = styled(motion.div)`
   border-radius: 100%;
   background: url("/assets/cursorFollowerInverted.png") 0 0 no-repeat;
   background-size: 100% 100%;
-  mix-blend-mode: difference;
   z-index: 20;
   &.dark {
     background: url("/assets/cursorFollower.png") 0 0 no-repeat;
@@ -47,7 +46,6 @@ const Curser = styled.div`
 
 const Cursor = () => {
   const { x, y, hoverNav } = useMousePosition();
-  const theme = useTheme();
   const { isDark } = useAppContext();
 
   return (
