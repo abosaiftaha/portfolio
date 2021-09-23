@@ -9,7 +9,7 @@ export const useMousePosition = () => {
     const handlePosition = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
 
-      if ((e.target as HTMLElement).id === "geekSticker") {
+      if ((e.target as HTMLElement).id === "mainTitle") {
         setMainTitle(true);
       } else {
         setMainTitle(false);
