@@ -21,6 +21,8 @@ const GlobalStyle = createGlobalStyle`
     isolation: isolate;
     padding: 0 70px;
     background-color: ${({ theme }) => theme.colors.black};
+    color: ${({ theme }) => theme.colors.white};
+    font-family: ${({ theme }) => theme.fontFamily.lato};
 
     &::after{
       content: '';
