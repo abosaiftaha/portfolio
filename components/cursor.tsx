@@ -1,7 +1,11 @@
 import React from "react";
-import styled, { useTheme } from "styled-components";
-import { useMousePosition } from "../hooks/useMousePosition";
+import styled from "styled-components";
+
+// packages
 import { motion } from "framer-motion";
+
+// hooks
+import { useMousePosition } from "../hooks/useMousePosition";
 import { useAppContext } from "../utils/contextProvider";
 
 const CursorFollower = styled(motion.div)`

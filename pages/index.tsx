@@ -1,12 +1,15 @@
-import { motion } from "framer-motion";
-import type { NextPage } from "next";
-import styled, { useTheme } from "styled-components";
-import { Animations } from "../hooks/animations";
-import { CgArrowLongDown } from "react-icons/cg";
-// import GeekSVG from "../public/assets/GeekSVG";
-import Tilt from "react-tilt";
 import { useState } from "react";
+import type { NextPage } from "next";
+
+//packages
+import { motion } from "framer-motion";
+import styled, { useTheme } from "styled-components";
+import { CgArrowLongDown } from "react-icons/cg";
+import Tilt from "react-tilt";
 import ReactFullpage from "@fullpage/react-fullpage";
+
+// hooks
+import { Animations } from "../hooks/animations";
 
 const HomeStyles = styled.div`
   display: flex;

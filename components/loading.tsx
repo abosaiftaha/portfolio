@@ -1,9 +1,11 @@
-import { motion } from "framer-motion";
-import React, { FC } from "react";
-import styled from "styled-components";
-import { useAppContext } from "../utils/contextProvider";
+import React from "react";
 
-interface LoadingScreenProps {}
+// packages
+import { motion } from "framer-motion";
+import styled from "styled-components";
+
+// utils
+import { useAppContext } from "../utils/contextProvider";
 
 const LoadingContainer = styled(motion.div)`
   width: 100vw;
@@ -51,9 +53,7 @@ const LoadingText = styled(motion.div)`
   font-family: ${({ theme }) => theme.fontFamily.lato};
   font-size: 40px;
   font-weight: 300;
-  /* -webkit-text-stroke: 1px ${({ theme }) => theme.colors.white}; */
   color: ${({ theme }) => theme.colors.white};
-  /* word-break: break-all; */
   &.word {
     margin-bottom: 5px;
     margin-left: 20px;
@@ -104,7 +104,7 @@ const variants = {
   },
 };
 
-const LoadingScreen: FC<LoadingScreenProps> = () => {
+const LoadingScreen = () => {
   const { isDark } = useAppContext();
 
   return (

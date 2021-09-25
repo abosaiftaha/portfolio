@@ -1,12 +1,20 @@
 import type { AppProps } from "next/app";
+
+// packages
 import { createGlobalStyle } from "styled-components";
+
+// components
 import { Cursor } from "../components/cursor";
 import LoadingScreen from "../components/loading";
 import Nav from "../components/nav";
+import AppHead from "../components/head";
+
+// utils
 import AppThemeProvider from "../utils/themeProvider";
 import { ContextWrapper } from "../utils/contextProvider";
+
+//assets
 import FontGlobalStyle from "../public/fonts";
-import AppHead from "../components/head";
 
 const GlobalStyle = createGlobalStyle`
   * {

@@ -1,6 +1,10 @@
-import React, { Dispatch, FunctionComponent, SetStateAction } from "react";
+import React, { FunctionComponent } from "react";
+
+// packages
 import { IoMoonOutline, IoSunnyOutline, IoMailOutline } from "react-icons/io5";
 import styled from "styled-components";
+
+// utils
 import { useAppContext } from "../utils/contextProvider";
 
 const Container = styled.div`
