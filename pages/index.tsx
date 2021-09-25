@@ -2,10 +2,11 @@ import { motion } from "framer-motion";
 import type { NextPage } from "next";
 import styled, { useTheme } from "styled-components";
 import { Animations } from "../hooks/animations";
-import { useMousePosition } from "../hooks/useMousePosition";
-import { useWindowSize } from "../hooks/useWindowResize";
+import { CgArrowLongDown } from "react-icons/cg";
 // import GeekSVG from "../public/assets/GeekSVG";
 import Tilt from "react-tilt";
+import { useState } from "react";
+import ReactFullpage from "@fullpage/react-fullpage";
 
 const HomeStyles = styled.div`
   display: flex;
@@ -29,11 +30,11 @@ const HomeStyles = styled.div`
       z-index: 1;
 
       .main-text {
-        -webkit-text-stroke: 1px ${({ theme }) => theme.colors.white};
+        -webkit-text-stroke: 2px ${({ theme }) => theme.colors.white};
         color: transparent;
         font-family: ${({ theme }) => theme.fontFamily.salsa};
         font-size: 10vw;
-        padding: 1vw 2vw 0 2vw;
+        padding: 0 2vw;
         text-align: center;
         position: relative;
         z-index: 2;
@@ -49,12 +50,14 @@ const HomeStyles = styled.div`
       }
 
       .secondary-text {
-        font-size: 1vw;
+        font-size: 1.3vw;
         font-weight: 300;
-        padding: 0 2vw;
+        margin: 0 4.5vw;
+        color: ${({ theme }) => theme.colors.white};
+        /* font-weight: 900; */
 
         p {
-          margin: 0 0 5px 0;
+          margin: 0;
         }
       }
 
@@ -65,15 +68,48 @@ const HomeStyles = styled.div`
           left: 50%;
           top: 50%;
           transform: translate(-50%, -50%);
-          width: 25vw;
-          height: 25vw;
-          background: url("/assets/emoji.png") no-repeat;
+          width: 17vw;
+          height: 17vw;
+          background: url("/assets/front-end-geek.svg") no-repeat;
           background-position: center;
           background-size: contain;
           transition: ease-in-out 0.5;
           z-index: 2;
         }
       }
+    }
+
+    .arrow-container {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 50%);
+
+      .arrow {
+        margin: 0 auto;
+        opacity: 0.1;
+      }
+    }
+  }
+
+  .about {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .head-line {
+      font-family: ${({ theme }) => theme.fontFamily.salsa};
+      font-size: 3vw;
+      margin: 0;
+    }
+
+    .paragraph {
+      width: 50%;
+      font-size: 1.3vw;
+      font-weight: 300;
     }
   }
 `;
@@ -90,37 +126,65 @@ const variants = {
 };
 
 const Home: NextPage = () => {
-  const { width } = useWindowSize();
+  const [hoverMainTitle, setHoverMainTitle] = useState(false);
   const { transition, textReveal } = Animations();
-  const { hoverMainTitle } = useMousePosition();
   const theme = useTheme();
 
   return (
-    <HomeStyles>
-      <motion.div
-        className="hero-banner"
-        initial="hidden"
-        animate="visible"
-        transition={{ ...textReveal, duration: 2, delay: 4.2 }}
-        variants={variants.heroBanner}
-      >
-        <Tilt options={{ max: 25 }}>
-          <motion.div
-            id="mainTitle"
-            className="content"
-            whileHover={{ color: theme.colors.white }}
-          >
-            <div className={`main-text ${hoverMainTitle && "hovered"}`}>
-              {"Ahmad Taha"}
+    <ReactFullpage
+      navigation
+      render={() => (
+        <ReactFullpage.Wrapper>
+          <HomeStyles>
+            <div className="section">
+              <motion.div
+                className="hero-banner"
+                initial="hidden"
+                animate="visible"
+                transition={{ ...textReveal, duration: 2, delay: 4.2 }}
+                variants={variants.heroBanner}
+              >
+                <Tilt
+                  options={{ max: 25, easing: "cubic-bezier(.03,.98,.52,.99)" }}
+                  onMouseEnter={() => setHoverMainTitle(true)}
+                  onMouseLeave={() => setHoverMainTitle(false)}
+                >
+                  <motion.div
+                    className="content"
+                    whileHover={{ color: theme.colors.white }}
+                  >
+                    <motion.div
+                      className="secondary-text"
+                      whileHover={{ scale: 1.1, transition: { ...transition } }}
+                    >
+                      <a>Software Engineer</a>
+                    </motion.div>
+                    <div className={`main-text ${hoverMainTitle && "hovered"}`}>
+                      Ahmad Taha
+                    </div>
+                  </motion.div>
+                </Tilt>
+                <div className="arrow-container">
+                  <CgArrowLongDown size={120} className="arrow" />
+                </div>
+              </motion.div>
             </div>
-            <div className="secondary-text">
-              <p>Software Engineer</p>
-              <p>Front-end Geek</p>
+
+            <div className="section">
+              <div className="about">
+                <h3 className="head-line">About Me</h3>
+                <p className="paragraph">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
+                  aut blanditiis dolorem commodi, nobis totam reiciendis fuga,
+                  veritatis incidunt eaque, qui veniam. Aperiam quibusdam modi
+                  ex voluptate cumque suscipit iure!
+                </p>
+              </div>
             </div>
-          </motion.div>
-        </Tilt>
-      </motion.div>
-    </HomeStyles>
+          </HomeStyles>
+        </ReactFullpage.Wrapper>
+      )}
+    />
   );
 };
 
