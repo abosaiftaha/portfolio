@@ -9,13 +9,17 @@ import { ContextWrapper } from "../utils/contextProvider";
 import FontGlobalStyle from "../public/fonts";
 
 const GlobalStyle = createGlobalStyle`
+  * {
+    box-sizing: border-box;
+  }
+
   html,
   body {
     padding: 0;
     margin: 0;
     overflow-x: hidden;
   }
-  
+
   body{
     cursor: none;
     isolation: isolate;
@@ -23,24 +27,41 @@ const GlobalStyle = createGlobalStyle`
     background-color: ${({ theme }) => theme.colors.black};
     color: ${({ theme }) => theme.colors.white};
     font-family: ${({ theme }) => theme.fontFamily.lato};
-
-    &::after{
-      content: '';
-      background: url("/assets/grain.png") 0 0/150px auto;
-      opacity: 0.5;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      position: fixed;
+    
+      /* Custom Scrollbar with FireFox */
+      scrollbar-width: thin;
+      scrollbar-color: ${({ theme }) => `${theme.colors.white}26`} transparent;
+      &::after{
+        content: '';
+        background: url("/assets/grain.png") 0 0/150px auto;
+        opacity: 0.5;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: fixed;
+        z-index: -1;  
       z-index: -1;  
+        z-index: -1;  
+      }
+
+
+    /* Custom Scrollbar on Chrome, Edge, and Safari */
+    &::-webkit-scrollbar {
+      width: 7px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: ${({ theme }) => `${theme.colors.white}26`};
+      border-radius: 20px;
+      border: 3px solid transparent;
     }
   }
-
-  * {
-    box-sizing: border-box;
-  }
-  `;
+`;
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
