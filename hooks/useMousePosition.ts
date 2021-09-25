@@ -3,17 +3,11 @@ import { useState, useEffect } from "react";
 export const useMousePosition = () => {
   const [mousePosition, setMousePosition] = useState({ x: -100, y: -100 });
   const [hoverNav, setHoverNav] = useState(false);
-  const [hoverMainTitle, setMainTitle] = useState(false);
 
   useEffect(() => {
     const handlePosition = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+      setMousePosition({ x: e.pageX, y: e.pageY });
 
-      if ((e.target as HTMLElement).id === "mainTitle") {
-        setMainTitle(true);
-      } else {
-        setMainTitle(false);
-      }
       if (
         (e.target as HTMLElement).tagName === "A" ||
         (e.target as HTMLElement).getAttribute("class")?.includes("link-icon")
@@ -27,5 +21,5 @@ export const useMousePosition = () => {
     window.addEventListener("mousemove", handlePosition);
     return () => window.removeEventListener("mousemove", handlePosition);
   }, []);
-  return { ...mousePosition, hoverNav, hoverMainTitle };
+  return { ...mousePosition, hoverNav };
 };
