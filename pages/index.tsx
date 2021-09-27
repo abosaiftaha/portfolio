@@ -4,7 +4,7 @@ import type { NextPage } from "next";
 //packages
 import { motion } from "framer-motion";
 import styled, { useTheme } from "styled-components";
-import { CgArrowLongDown } from "react-icons/cg";
+import { IoArrowDownCircle } from "react-icons/io5";
 import Tilt from "react-tilt";
 import ReactFullpage from "@fullpage/react-fullpage";
 
@@ -16,8 +16,13 @@ const HomeStyles = styled.div`
   flex-direction: column;
   justify-content: center;
 
-  .hero-banner {
+  .section {
     height: 100vh;
+    width: 100vw;
+  }
+
+  .hero-banner {
+    height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -84,9 +89,9 @@ const HomeStyles = styled.div`
 
     .arrow-container {
       position: absolute;
-      bottom: 0;
+      bottom: 5vh;
       left: 50%;
-      transform: translate(-50%, 50%);
+      transform: translateX(-50%);
 
       .arrow {
         margin: 0 auto;
@@ -96,8 +101,6 @@ const HomeStyles = styled.div`
   }
 
   .about {
-    height: 100vh;
-    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -168,9 +171,33 @@ const Home: NextPage = () => {
                   </motion.div>
                 </Tilt>
                 <div className="arrow-container">
-                  <CgArrowLongDown size={120} className="arrow" />
+                  <IoArrowDownCircle size={40} className="arrow" />
                 </div>
               </motion.div>
+            </div>
+
+            <div className="section">
+              <div className="about">
+                <h3 className="head-line">About Me</h3>
+                <p className="paragraph">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
+                  aut blanditiis dolorem commodi, nobis totam reiciendis fuga,
+                  veritatis incidunt eaque, qui veniam. Aperiam quibusdam modi
+                  ex voluptate cumque suscipit iure!
+                </p>
+              </div>
+            </div>
+
+            <div className="section">
+              <div className="about">
+                <h3 className="head-line">About Me</h3>
+                <p className="paragraph">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
+                  aut blanditiis dolorem commodi, nobis totam reiciendis fuga,
+                  veritatis incidunt eaque, qui veniam. Aperiam quibusdam modi
+                  ex voluptate cumque suscipit iure!
+                </p>
+              </div>
             </div>
 
             <div className="section">
