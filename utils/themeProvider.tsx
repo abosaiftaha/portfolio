@@ -15,7 +15,7 @@ const darkTheme: DefaultTheme = {
   },
   fontFamily: {
     salsa: "Salsa BT",
-    lato: "Lato",
+    sora: "Sora",
   },
 };
 
@@ -30,7 +30,7 @@ const lightTheme: DefaultTheme = {
   },
   fontFamily: {
     salsa: "Salsa BT",
-    lato: "Lato",
+    sora: "Sora",
   },
 };
 

@@ -59,7 +59,7 @@ const HomeStyles = styled.div`
 
       .secondary-text {
         font-size: 1.3vw;
-        font-weight: 300;
+        font-weight: 200;
         margin: 0 4.5vw;
         color: ${({ theme }) => theme.colors.white};
         /* font-weight: 900; */
@@ -115,7 +115,7 @@ const HomeStyles = styled.div`
     .paragraph {
       width: 50%;
       font-size: 1.3vw;
-      font-weight: 300;
+      font-weight: 200;
     }
   }
 `;

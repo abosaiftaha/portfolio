@@ -50,9 +50,9 @@ const LightSpot = styled(motion.div)`
 
 const LoadingText = styled(motion.div)`
   width: 100%;
-  font-family: ${({ theme }) => theme.fontFamily.lato};
+  font-family: ${({ theme }) => theme.fontFamily.sora};
   font-size: 40px;
-  font-weight: 300;
+  font-weight: 200;
   color: ${({ theme }) => theme.colors.white};
   &.word {
     margin-bottom: 5px;

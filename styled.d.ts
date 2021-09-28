@@ -12,7 +12,7 @@ declare module "styled-components" {
     };
     fontFamily: {
       salsa: string;
-      lato: string;
+      sora: string;
     };
   }
 }

@@ -2,40 +2,27 @@ import { createGlobalStyle } from 'styled-components';
 
 const FontGlobalStyle = createGlobalStyle`
 @font-face {
-    font-family: 'Lato';
-    src: url('/fonts/Lato-Light.eot');
-    src: url('/fonts/Lato-Light.eot?#iefix') format('embedded-opentype'),
-        url('/fonts/Lato-Light.woff2') format('woff2'),
-        url('/fonts/Lato-Light.woff') format('woff'),
-        url('/fonts/Lato-Light.ttf') format('truetype'),
-        url('/fonts/Lato-Light.svg#Lato-Light') format('svg');
-    font-weight: 300;
+    font-family: 'Sora';
+    src: url('/fonts/Sora-SemiBold.eot');
+    src: url('/fonts/Sora-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('/fonts/Sora-SemiBold.woff2') format('woff2'),
+        url('/fonts/Sora-SemiBold.woff') format('woff'),
+        url('/fonts/Sora-SemiBold.ttf') format('truetype'),
+        url('/fonts/Sora-SemiBold.svg#Sora-SemiBold') format('svg');
+    font-weight: 600;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Lato';
-    src: url('/fonts/Lato-Regular.eot');
-    src: url('/fonts/Lato-Regular.eot?#iefix') format('embedded-opentype'),
-        url('/fonts/Lato-Regular.woff2') format('woff2'),
-        url('/fonts/Lato-Regular.woff') format('woff'),
-        url('/fonts/Lato-Regular.ttf') format('truetype'),
-        url('/fonts/Lato-Regular.svg#Lato-Regular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Lato';
-    src: url('/fonts/Lato-Bold.eot');
-    src: url('/fonts/Lato-Bold.eot?#iefix') format('embedded-opentype'),
-        url('/fonts/Lato-Bold.woff2') format('woff2'),
-        url('/fonts/Lato-Bold.woff') format('woff'),
-        url('/fonts/Lato-Bold.ttf') format('truetype'),
-        url('/fonts/Lato-Bold.svg#Lato-Bold') format('svg');
-    font-weight: bold;
+    font-family: 'Sora';
+    src: url('/fonts/Sora-ExtraLight.eot');
+    src: url('/fonts/Sora-ExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('/fonts/Sora-ExtraLight.woff2') format('woff2'),
+        url('/fonts/Sora-ExtraLight.woff') format('woff'),
+        url('/fonts/Sora-ExtraLight.ttf') format('truetype'),
+        url('/fonts/Sora-ExtraLight.svg#Sora-ExtraLight') format('svg');
+    font-weight: 200;
     font-style: normal;
     font-display: swap;
 }

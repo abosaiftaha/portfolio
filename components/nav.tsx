@@ -23,7 +23,7 @@ const Container = styled.div`
 
 const Home = styled.a`
   font-size: 20px;
-  font-family: ${({ theme }) => theme.fontFamily.lato};
+  font-family: ${({ theme }) => theme.fontFamily.sora};
   font-weight: 500;
   color: ${({ theme }) => theme.colors.white};
 `;

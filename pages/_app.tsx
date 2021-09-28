@@ -34,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0 70px;
     background-color: ${({ theme }) => theme.colors.black};
     color: ${({ theme }) => theme.colors.white};
-    font-family: ${({ theme }) => theme.fontFamily.lato};
+    font-family: ${({ theme }) => theme.fontFamily.sora};
     
       /* Custom Scrollbar with FireFox */
       scrollbar-width: thin;
