@@ -12,9 +12,11 @@
   },
   "dependencies": {
     "@fullpage/react-fullpage": "^0.1.19",
+    "cookie": "^0.4.1",
     "framer-motion": "^4.1.17",
     "next": "11.1.2",
     "react": "17.0.2",
+    "react-cookie": "^4.1.1",
     "react-dom": "17.0.2",
     "react-icons": "^4.2.0",
     "react-tilt": "^0.1.4",
