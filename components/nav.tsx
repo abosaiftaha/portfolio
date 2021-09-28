@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 
 // packages
-import { IoMoonOutline, IoSunnyOutline, IoMailOutline } from "react-icons/io5";
+import { IoMoonOutline, IoSunnyOutline } from "react-icons/io5";
 import styled from "styled-components";
 
 // utils
@@ -21,16 +21,11 @@ const Container = styled.div`
   padding: 0 90px;
 `;
 
-const Home = styled.a`
-  font-size: 20px;
+const Text = styled.a`
+  font-size: 16px;
   font-family: ${({ theme }) => theme.fontFamily.sora};
-  font-weight: 500;
+  font-weight: 200;
   color: ${({ theme }) => theme.colors.white};
-`;
-
-const MailIcon = styled(IoMailOutline)`
-  fill: ${({ theme }) => theme.colors.white};
-  stroke: ${({ theme }) => theme.colors.white};
 `;
 
 const MoonIcon = styled(IoMoonOutline)`
@@ -45,41 +40,27 @@ const SunIcon = styled(IoSunnyOutline)`
   margin: 0 10px;
 `;
 
-const IconContainer = styled.a`
-  margin: 0 10px;
-`;
-
-const LeftContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-`;
-
 const Nav: FunctionComponent<{}> = () => {
   const { isDark, toggleDark } = useAppContext();
 
   return (
     <Container>
-      <Home>Home</Home>
+      <Text>Home</Text>
+      {isDark ? (
+        <SunIcon
+          size={27}
+          className="link-icon"
+          onClick={() => toggleDark && toggleDark(false)}
+        />
+      ) : (
+        <MoonIcon
+          size={27}
+          className="link-icon"
+          onClick={() => toggleDark && toggleDark(true)}
+        />
+      )}
 
-      <LeftContainer>
-        <IconContainer href="mailto:ahmad.khaled.taha@outlook.com">
-          <MailIcon size={30} className="link-icon" />
-        </IconContainer>
-        {isDark ? (
-          <SunIcon
-            size={27}
-            className="link-icon"
-            onClick={() => toggleDark && toggleDark(false)}
-          />
-        ) : (
-          <MoonIcon
-            size={27}
-            className="link-icon"
-            onClick={() => toggleDark && toggleDark(true)}
-          />
-        )}
-      </LeftContainer>
+      <Text>Hire Me</Text>
     </Container>
   );
 };
