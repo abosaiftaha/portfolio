@@ -139,6 +139,7 @@ const Home: NextPage = () => {
   return (
     <ReactFullpage
       navigation
+      licenseKey={process.env.licenseKey}
       render={() => (
         <ReactFullpage.Wrapper>
           <HomeStyles>
