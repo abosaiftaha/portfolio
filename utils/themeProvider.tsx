@@ -10,7 +10,7 @@ const darkTheme: DefaultTheme = {
     yellow: "#FCD406",
     purple: "#BB7DFF",
     red: "#FE7171",
-    black: "#000",
+    black: "#1A1818",
     white: "#fff",
   },
   fontFamily: {
@@ -25,8 +25,8 @@ const lightTheme: DefaultTheme = {
     yellow: "#FCD406",
     purple: "#BB7DFF",
     red: "#FE7171",
-    black: "#fff",
-    white: "#000",
+    black: "#d6d6d6",
+    white: "#1A1818",
   },
   fontFamily: {
     salsa: "Salsa BT",
