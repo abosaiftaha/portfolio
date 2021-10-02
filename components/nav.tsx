@@ -9,7 +9,7 @@ import { useAppContext } from "../utils/contextProvider";
 
 const Container = styled.div`
   width: 100%;
-  height: 140px;
+  height: 120px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -18,7 +18,7 @@ const Container = styled.div`
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  padding: 0 90px;
+  padding: 0 12vw;
 `;
 
 const Text = styled.a`
@@ -48,13 +48,13 @@ const Nav: FunctionComponent<{}> = () => {
       <Text>Home</Text>
       {isDark ? (
         <SunIcon
-          size={27}
+          size={20}
           className="link-icon"
           onClick={() => toggleDark && toggleDark(false)}
         />
       ) : (
         <MoonIcon
-          size={27}
+          size={20}
           className="link-icon"
           onClick={() => toggleDark && toggleDark(true)}
         />
