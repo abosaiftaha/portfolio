@@ -9,6 +9,7 @@ declare module "styled-components" {
       red: string;
       white: string;
       black: string;
+      grey: string;
     };
     fontFamily: {
       salsa: string;
