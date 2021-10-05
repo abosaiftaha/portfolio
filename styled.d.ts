@@ -15,5 +15,6 @@ declare module "styled-components" {
       salsa: string;
       sora: string;
     };
+    aboutImageOpacity: number;
   }
 }

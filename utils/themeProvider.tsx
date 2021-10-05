@@ -10,7 +10,7 @@ const darkTheme: DefaultTheme = {
     yellow: "#FCD406",
     purple: "#BB7DFF",
     red: "#FE7171",
-    black: "#1A1818",
+    black: "#0f0f0f",
     white: "#fff",
     grey: "#6e6e6e",
   },
@@ -18,6 +18,7 @@ const darkTheme: DefaultTheme = {
     salsa: "Salsa BT",
     sora: "Sora",
   },
+  aboutImageOpacity: 0.6,
 };
 
 const lightTheme: DefaultTheme = {
@@ -34,6 +35,7 @@ const lightTheme: DefaultTheme = {
     salsa: "Salsa BT",
     sora: "Sora",
   },
+  aboutImageOpacity: 0.8,
 };
 
 const AppThemeProvider: FC<AppThemeProviderProps> = ({ children }) => {
