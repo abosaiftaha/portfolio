@@ -51,13 +51,10 @@ const LightSpot = styled(motion.div)`
 const LoadingText = styled(motion.div)`
   width: 100%;
   font-family: ${({ theme }) => theme.fontFamily.sora};
-  font-size: 40px;
+  font-size: 24px;
   font-weight: 200;
   color: ${({ theme }) => theme.colors.white};
-  &.word {
-    margin-bottom: 5px;
-    margin-left: 20px;
-  }
+  white-space: nowrap;
 `;
 
 const loadingSentences = [
@@ -126,18 +123,13 @@ const LoadingScreen = () => {
           animate="visible"
           variants={variants.sentence}
         >
-          {loadingSentences[randomNum].split(" ").map((word, index) => (
-            <div key={`${word}-${index}`} className="word">
-              {word.split("").map((char, index) => (
-                <motion.span
-                  variants={variants.letter}
-                  key={`${char}-${index}`}
-                >
-                  {char}
-                </motion.span>
-              ))}
-            </div>
-          ))}
+          <div className="word">
+            {loadingSentences[randomNum].split("").map((char, index) => (
+              <motion.span variants={variants.letter} key={`${char}-${index}`}>
+                {char}
+              </motion.span>
+            ))}
+          </div>
         </LoadingText>
       </LightSpot>
     </LoadingContainer>
