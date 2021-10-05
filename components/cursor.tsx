@@ -62,7 +62,7 @@ const Cursor = () => {
           x: "-50%",
           y: "-50%",
           scale: hoverNav ? 1.8 : 1,
-          opacity: hoverNav ? 1 : 0.3,
+          opacity: hoverNav ? 1 : 0.5,
         }}
         transition={{ ease: "linear", duration: 0.15 }}
       />
