@@ -35,6 +35,10 @@ const GlobalStyle = createGlobalStyle`
     background-color: ${({ theme }) => theme.colors.black};
     color: ${({ theme }) => theme.colors.white};
     font-family: ${({ theme }) => theme.fontFamily.sora};
+
+    a{
+      cursor: none;
+    }
     
     /* add grain to background */
     &::after{
