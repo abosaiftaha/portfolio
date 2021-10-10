@@ -134,7 +134,7 @@ const Landing: FC<LandingProps> = () => {
         </motion.div>
       </Tilt>
       <div className="arrow-container">
-        <BsArrowDown size={35} className="arrow" />
+        <BsArrowDown size={25} className="arrow" />
       </div>
     </LandingStyles>
   );
