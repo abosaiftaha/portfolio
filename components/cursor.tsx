@@ -43,14 +43,22 @@ const Curser = styled.div`
   &.on-focus {
     background-color: transparent;
   }
+
+  p {
+    font-size: 20px;
+    position: absolute;
+    transform: translate(-50%, -100%);
+  }
   @media (hover: none) and (pointer: coarse), (max-width: 500px) {
     display: none;
   }
 `;
 
 const Cursor = () => {
-  const { x, y, hoverNav } = useMousePosition();
+  const { x, y, hoverNav, hoverDrag } = useMousePosition();
   const { isDark } = useAppContext();
+
+  console.log(hoverDrag);
 
   return (
     <>
@@ -61,18 +69,20 @@ const Cursor = () => {
           left: x,
           x: "-50%",
           y: "-50%",
-          scale: hoverNav ? 1.8 : 1,
-          opacity: hoverNav ? 1 : 0.5,
+          scale: hoverNav || hoverDrag ? 1.8 : 1,
+          opacity: hoverNav || hoverDrag ? 1 : 0.5,
         }}
         transition={{ ease: "linear", duration: 0.15 }}
       />
       <Curser
-        className={hoverNav ? "on-focus" : ""}
+        className={hoverNav || hoverDrag ? "on-focus" : ""}
         style={{
           top: y,
           left: x,
         }}
-      />
+      >
+        {hoverDrag && <p>Drag</p>}
+      </Curser>
     </>
   );
 };
