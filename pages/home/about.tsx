@@ -209,10 +209,12 @@ const About: FC<AboutProps> = () => {
           crafting tools in, where CSS is my teammate.
         </div>
         <div className="contact">
-          Let's contact:{" "}
-          <a href="mailto:ahmad.khaled.taha@outlook.com">Email</a> ,{" "}
-          <a target="_blank" href="https://www.linkedin.com/in/abosaiftaha">
-            LinkedIn
+          Want to learn more:{" "}
+          <a
+            target="_blank"
+            href="https://drive.google.com/file/d/1z9XFQmCc-Ly1aFb9ijg6_Cyzp11f4NHJ/view?usp=sharing"
+          >
+            Download my resume
           </a>
         </div>
       </div>
