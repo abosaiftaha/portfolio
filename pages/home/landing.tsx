@@ -1,18 +1,17 @@
 import React, { FC, useState } from "react";
-
-// packages
-import { motion } from "framer-motion";
 import styled, { useTheme } from "styled-components";
-import { BsArrowDown } from "react-icons/bs";
-import Tilt from "react-tilt";
 
 // hooks
 import { Animations } from "../../hooks/animations";
+import { BsArrowDown } from "react-icons/bs";
+import Tilt from "react-tilt";
+// packages
+import { motion } from "framer-motion";
 
 interface LandingProps {}
 
 const LandingStyles = styled(motion.div)`
-  height: 100%;
+  height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;

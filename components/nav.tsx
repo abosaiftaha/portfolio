@@ -1,9 +1,9 @@
-import React, { FunctionComponent } from "react";
-
 // packages
 import { IoMoonOutline, IoSunnyOutline } from "react-icons/io5";
-import styled from "styled-components";
+import React, { FunctionComponent } from "react";
+import { SiGithub, SiLinkedin } from "react-icons/si";
 
+import styled from "styled-components";
 // utils
 import { useAppContext } from "../utils/contextProvider";
 
@@ -21,11 +21,18 @@ const Container = styled.div`
   padding: 0 12vw;
 `;
 
+const RightSection = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+`;
+
 const Text = styled.a`
   font-size: 16px;
   font-family: ${({ theme }) => theme.fontFamily.sora};
   font-weight: 200;
   color: ${({ theme }) => theme.colors.white};
+  margin: 0 10px;
 `;
 
 const MoonIcon = styled(IoMoonOutline)`
@@ -40,12 +47,23 @@ const SunIcon = styled(IoSunnyOutline)`
   margin: 0 10px;
 `;
 
+const LinkedinIcon = styled(SiLinkedin)`
+  fill: ${({ theme }) => theme.colors.white};
+  stroke: ${({ theme }) => theme.colors.white};
+  margin: 0 10px;
+`;
+
+const GithubIcon = styled(SiGithub)`
+  fill: ${({ theme }) => theme.colors.white};
+  stroke: ${({ theme }) => theme.colors.white};
+  margin: 0 10px;
+`;
+
 const Nav: FunctionComponent<{}> = () => {
   const { isDark, toggleDark } = useAppContext();
 
   return (
     <Container>
-      <Text>Home</Text>
       {isDark ? (
         <SunIcon
           size={20}
@@ -60,7 +78,25 @@ const Nav: FunctionComponent<{}> = () => {
         />
       )}
 
-      <Text>Hire Me</Text>
+      <RightSection>
+        <LinkedinIcon
+          className="link-icon"
+          size={20}
+          onClick={() =>
+            window.open("https://www.linkedin.com/in/abosaiftaha", "_blank")
+          }
+        />
+
+        <GithubIcon
+          className="link-icon"
+          size={20}
+          onClick={() =>
+            window.open("https://github.com/abosaiftaha", "_blank")
+          }
+        />
+
+        <Text>Hire Me</Text>
+      </RightSection>
     </Container>
   );
 };
