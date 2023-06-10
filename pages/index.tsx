@@ -38,7 +38,7 @@ const Home: NextPage = () => {
     <ReactFullpage
       navigation
       keyboardScrolling
-      licenseKey={process.env.licenseKey}
+      licenseKey={process.env.LICENSE_KEY}
       render={() => (
         <ReactFullpage.Wrapper>
           <HomeStyles>
