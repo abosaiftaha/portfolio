@@ -1,12 +1,10 @@
 import React from "react";
-import styled from "styled-components";
-
 // packages
 import { motion } from "framer-motion";
-
+import styled from "styled-components";
+import { useAppContext } from "../utils/contextProvider";
 // hooks
 import { useMousePosition } from "../hooks/useMousePosition";
-import { useAppContext } from "../utils/contextProvider";
 
 const CursorFollower = styled(motion.div)`
   pointer-events: none;
@@ -57,8 +55,6 @@ const Curser = styled.div`
 const Cursor = () => {
   const { x, y, hoverNav, hoverDrag } = useMousePosition();
   const { isDark } = useAppContext();
-
-  console.log(hoverDrag);
 
   return (
     <>

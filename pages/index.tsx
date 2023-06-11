@@ -5,6 +5,10 @@ import ReactFullpage from "@fullpage/react-fullpage";
 import styled from "styled-components";
 
 const HomeStyles = styled.div`
+  .fp-watermark {
+    display: none;
+  }
+
   .section {
     height: 100vh;
     width: 100vw;
@@ -38,7 +42,7 @@ const Home: NextPage = () => {
     <ReactFullpage
       navigation
       keyboardScrolling
-      licenseKey={process.env.LICENSE_KEY}
+      licenseKey={process.env.licenseKey}
       render={() => (
         <ReactFullpage.Wrapper>
           <HomeStyles>
