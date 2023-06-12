@@ -1,28 +1,28 @@
 import React, { FC } from "react";
-import styled, { keyframes } from "styled-components";
 import {
-  SiReact,
-  SiNextDotJs,
-  SiJavascript,
-  SiTypescript,
-  SiGit,
-  SiGraphql,
-  SiRedux,
-  SiSass,
-  SiTailwindcss,
-  SiCss3,
-  SiNodeDotJs,
+  SiAdobeillustrator,
   SiAdobephotoshop,
   SiAdobexd,
-  SiAdobeillustrator,
+  SiAdonisjs,
+  SiCss3,
+  SiDeno,
+  SiDocker,
   SiFigma,
   SiFramer,
-  SiWebgl,
-  SiAdonisjs,
-  SiDocker,
+  SiGit,
+  SiGraphql,
+  SiJavascript,
+  SiNextDotJs,
+  SiNodeDotJs,
+  SiReact,
+  SiRedux,
+  SiSass,
   SiSvelte,
-  SiDeno,
+  SiTailwindcss,
+  SiTypescript,
+  SiWebgl,
 } from "react-icons/si";
+import styled, { keyframes } from "styled-components";
 
 interface AboutProps {}
 
@@ -43,11 +43,19 @@ const AboutStyles = styled.div`
   align-items: flex-start;
   padding: 0 12vw;
   z-index: 2;
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+    margin-top: 50px;
+  }
 
   .title {
     font-size: 30px;
     font-weight: 600;
     margin-bottom: 30px;
+    @media (max-width: 768px) {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
   }
 
   .skills {
@@ -58,6 +66,9 @@ const AboutStyles = styled.div`
     justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;
+    @media (max-width: 768px) {
+      width: 100%;
+    }
 
     .content {
       width: 100%;
@@ -68,6 +79,9 @@ const AboutStyles = styled.div`
           padding-bottom: 5px;
           margin-bottom: 5px;
           position: relative;
+          @media (max-width: 768px) {
+            font-size: 14px;
+          }
 
           &::before {
             content: "";
@@ -105,15 +119,26 @@ const AboutStyles = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    @media (max-width: 768px) {
+      width: 100%;
+      margin: 30px 0;
+    }
 
     .content {
       width: 80%;
       font-size: 18px;
       margin-bottom: 15px;
+      @media (max-width: 768px) {
+        width: 100%;
+        font-size: 14px;
+      }
 
       &.grey {
         width: 55%;
         color: ${({ theme }) => theme.colors.grey};
+        @media (max-width: 768px) {
+          width: 100%;
+        }
       }
     }
 
@@ -190,6 +215,7 @@ const About: FC<AboutProps> = () => {
               <SiSvelte size={iconSize} className="skill-icon" />
               <SiDeno size={iconSize} className="skill-icon" />
               <SiAdonisjs size={iconSize} className="skill-icon" />
+              <SiWebgl size={iconSize} className="skill-icon" />
               <SiDocker size={iconSize} className="skill-icon" />
             </div>
           </div>
@@ -198,10 +224,10 @@ const About: FC<AboutProps> = () => {
       <div className="about">
         <div className="title">About Me</div>
         <div className="content">
-          I am a 23-years-old Web and Mobile Developer who aims to combine his
-          knowledge in UX/UI design and front-end development to create
-          well-performing and responsive Softwares where motion, interaction and
-          design are perfectly integrated to form a unique experience.
+          I am a Software Engineer who aims to combine his knowledge in UX/UI
+          design and front-end development to create well-performing and
+          responsive Softwares where motion, interaction and design are
+          perfectly integrated to form a unique experience.
         </div>
         <div className="content grey">
           I use Next JS and React Native as a main weapon, TypeScript as a

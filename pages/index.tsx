@@ -26,6 +26,10 @@ const HomeStyles = styled.div`
         background-size: 500px 500px;
         opacity: ${({ theme }) => theme.aboutImageOpacity};
         z-index: -1;
+
+        @media (max-width: 1024px) {
+          background: none;
+        }
       }
     }
 
@@ -42,12 +46,14 @@ const Home: NextPage = () => {
     <ReactFullpage
       navigation
       keyboardScrolling
+      dragAndMove
+      autoScrolling
       licenseKey={process.env.licenseKey}
-      render={() => (
+      render={({ fullpageApi }: any) => (
         <ReactFullpage.Wrapper>
           <HomeStyles>
             <div className="section">
-              <Landing />
+              <Landing fullpageApi={fullpageApi} />
             </div>
 
             <div className="section about">

@@ -8,7 +8,9 @@ import Tilt from "react-tilt";
 // packages
 import { motion } from "framer-motion";
 
-interface LandingProps {}
+interface LandingProps {
+  fullpageApi: any;
+}
 
 const LandingStyles = styled(motion.div)`
   height: 100vh;
@@ -24,7 +26,11 @@ const LandingStyles = styled(motion.div)`
     align-items: flex-start;
     justify-content: flex-end;
     position: relative;
+    padding: 10px;
     z-index: 1;
+    @media (max-width: 768px) {
+      align-items: center;
+    }
 
     .main-text {
       -webkit-text-stroke: 2px ${({ theme }) => theme.colors.white};
@@ -36,6 +42,11 @@ const LandingStyles = styled(motion.div)`
       position: relative;
       z-index: 2;
       transition: all 0.2s ease-in-out;
+      @media (max-width: 768px) {
+        padding: 0;
+        -webkit-text-stroke: 1px ${({ theme }) => theme.colors.white};
+        font-size: 20vw;
+      }
 
       &:hover {
         color: ${({ theme }) => theme.colors.white};
@@ -52,6 +63,11 @@ const LandingStyles = styled(motion.div)`
       margin: 0 4.5vw;
       margin-bottom: -20px;
       z-index: 99;
+      @media (max-width: 768px) {
+        font-size: 16px;
+        margin: 10px 0;
+      }
+
       a {
         color: ${({ theme }) => theme.colors.white};
         margin: 0;
@@ -100,7 +116,7 @@ const variants = {
   },
 };
 
-const Landing: FC<LandingProps> = () => {
+const Landing: FC<LandingProps> = ({ fullpageApi }) => {
   const [hoverMainTitle, setHoverMainTitle] = useState(false);
   const { transition, textReveal } = Animations();
   const theme = useTheme();
@@ -132,7 +148,10 @@ const Landing: FC<LandingProps> = () => {
           </div>
         </motion.div>
       </Tilt>
-      <div className="arrow-container">
+      <div
+        className="arrow-container"
+        onClick={() => fullpageApi.moveSectionDown()}
+      >
         <BsArrowDown size={25} className="arrow" />
       </div>
     </LandingStyles>
