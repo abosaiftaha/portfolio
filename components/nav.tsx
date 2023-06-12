@@ -1,7 +1,13 @@
 // packages
-import { IoMoonOutline, IoSunnyOutline } from "react-icons/io5";
+import {
+  IoLogoGithub,
+  IoLogoLinkedin,
+  IoMail,
+  IoMoonOutline,
+  IoSunnyOutline,
+} from "react-icons/io5";
 import React, { FunctionComponent } from "react";
-import { SiGithub, SiLinkedin } from "react-icons/si";
+import { SiGithub, SiLinkedin, SiMailDotRu } from "react-icons/si";
 
 import styled from "styled-components";
 // utils
@@ -47,13 +53,19 @@ const SunIcon = styled(IoSunnyOutline)`
   margin: 0 10px;
 `;
 
-const LinkedinIcon = styled(SiLinkedin)`
+const LinkedinIcon = styled(IoLogoLinkedin)`
   fill: ${({ theme }) => theme.colors.white};
   stroke: ${({ theme }) => theme.colors.white};
   margin: 0 10px;
 `;
 
-const GithubIcon = styled(SiGithub)`
+const GithubIcon = styled(IoLogoGithub)`
+  fill: ${({ theme }) => theme.colors.white};
+  stroke: ${({ theme }) => theme.colors.white};
+  margin: 0 10px;
+`;
+
+const MailIcon = styled(IoMail)`
   fill: ${({ theme }) => theme.colors.white};
   stroke: ${({ theme }) => theme.colors.white};
   margin: 0 10px;
@@ -95,7 +107,16 @@ const Nav: FunctionComponent<{}> = () => {
           }
         />
 
-        <Text>Hire Me</Text>
+        <MailIcon
+          className="link-icon"
+          size={20}
+          onClick={() =>
+            window.open(
+              `mailto:work@abosaiftaha.com?Subject=Job Opportunity`,
+              "_blank"
+            )
+          }
+        />
       </RightSection>
     </Container>
   );
