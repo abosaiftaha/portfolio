@@ -238,7 +238,7 @@ const About: FC<AboutProps> = () => {
           Want to learn more:{" "}
           <a
             target="_blank"
-            href="https://drive.google.com/file/d/1z9XFQmCc-Ly1aFb9ijg6_Cyzp11f4NHJ/view?usp=sharing"
+            href="https://drive.google.com/file/d/11MXXTa1G9TjLSRQo0GcrMEuc8gsmlTeI/view?usp=sharing"
           >
             Download my resume
           </a>
